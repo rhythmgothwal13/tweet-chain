@@ -9,9 +9,9 @@ import './UserStorage.sol';
 contract UserController is BaseController{
     
   function createUser(
-    bytes32  _username, 
-    bytes32 _lastName,
-    bytes32 _firstName, 
+    string memory  _username, 
+    string memory _lastName,
+    string memory _firstName, 
     string memory _bio,
     string memory _gravatarEmail
   ) public returns(uint) {

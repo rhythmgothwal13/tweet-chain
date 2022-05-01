@@ -9,9 +9,9 @@ contract('users', ()=>{
     it("can create user with controller", async () => {
         const controller = await UserController.deployed()
         const tx = await controller.createUser(
-            web3.utils.asciiToHex("tristan"),
-            web3.utils.asciiToHex("Tristan"),
-            web3.utils.asciiToHex("Edwards"),
+            "tristan",
+            "Tristan",
+            "Edwards",
             "I like building stuff",
             "example@example.com"
         )
@@ -44,7 +44,7 @@ contract('users', ()=>{
         const userInfo = await storage.profiles.call(userId)
         
         // Get the second element (the username)
-        const username = web3.utils.toAscii(userInfo[1]).replace(/\u0000/g,'')
+        const username = userInfo[1]
     
         assert.equal(username, "tristan")
       });

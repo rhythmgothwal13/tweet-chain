@@ -2,6 +2,8 @@ import {eth,getInstance} from './provider'
 import UserStorage from  "./artifacts/UserStorage.json"
 import UserController from "./artifacts/UserController.json"
 import Web3 from 'web3'
+const utils = require('./../../test/utils.js')
+const { assertVMException } = utils
 
 export const getUserInfo =async(userId) =>{
   const storage = await getInstance(UserStorage)
@@ -25,7 +27,6 @@ export const getUserInfo =async(userId) =>{
     lastName: (lastName),
     bio,
     gravatarEmail,
-    
   }
 }
 

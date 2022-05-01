@@ -1,6 +1,10 @@
 import Button from "./Button"
 import React from 'react'
 import { createUser } from "../web3/users"
+import { any } from "react-globally"
+// import Web3 from "web3"
+const utils = require('./../../test/utils.js')
+const { assertVMException } = utils
 
 const Input = ({ title, value, onChange }) => (
   <div>
@@ -44,9 +48,9 @@ const Input = ({ title, value, onChange }) => (
 
 export default class RegistrationForm extends React.Component {
   state = {
-    firstName: "",
-    lastName: "",
-    username: "",
+    firstName: any,
+    lastName: any,
+    username: any,
     gravatarEmail: "",
     bio: "",
   }
@@ -70,8 +74,11 @@ export default class RegistrationForm extends React.Component {
     const {firstName, lastName, username, bio, gravatarEmail } = this.state
 
     try {
-      // Open the MetaMask modal:
-      await createUser (username, firstName, lastName, bio, gravatarEmail)
+      // Open the MetaMask modal:4
+      console.log(username);
+      console.log(web3.utils.asciiToHex(username));
+
+      // await createUser (username, firstName, lastName, bio, gravatarEmail)
 
       alert("Your user has been created!")
     } catch (err) {

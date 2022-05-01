@@ -9,8 +9,8 @@ contract  UserStorage is BaseStorage{
     struct Profile{
         uint id;
         string username;
-        bytes32 firstName;
-        bytes32 lastName;
+        string firstName;
+        string lastName;
         string bio;
         string gravatarEmail;
     }
@@ -20,12 +20,11 @@ contract  UserStorage is BaseStorage{
     mapping (string => uint) public usernames;
     uint latestUserId = 0;
 
-
     function createUser(
     address _address,
     string memory _username,
-    bytes32 _firstName,
-    bytes32 _lastName,
+    string memory _firstName,
+    string memory _lastName,
     string memory _bio,
     string memory _gravatarEmail
   ) public onlyController returns(uint) {
