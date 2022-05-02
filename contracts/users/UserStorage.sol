@@ -27,7 +27,7 @@ contract  UserStorage is BaseStorage{
     string memory _lastName,
     string memory _bio,
     string memory _gravatarEmail
-  ) public onlyController returns(uint) {
+  ) public returns(uint) {
     latestUserId++;  
 
     profiles[latestUserId] = Profile(

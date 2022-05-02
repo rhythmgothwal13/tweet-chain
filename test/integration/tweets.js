@@ -1,5 +1,6 @@
 const TweetStorage = artifacts.require('TweetStorage')
 
+const UserController = artifacts.require("UserController")
 const utils = require('../utils')
 const { assertVMException } = utils
 
@@ -7,12 +8,22 @@ const TweetController = artifacts.require('TweetController')
 
 contract('tweets',() =>{
 
- /*   
-    before(async()=>{
-        const tweetStorage  = await TweetStorage.deployed()
-        await tweetStorage.createTweet(1,"Hello world!")
-    })
-*/
+ 
+    before(async () => {
+        const userCtrl = await UserController.deployed();
+        
+        const username = "tristan"
+        const firstName = "Tristan"
+        const lastName ="Edwards"
+        
+        await userCtrl.createUser(
+          username,
+          firstName,
+          lastName,
+          "I like building stuff",
+          "example@example.com"
+        );
+      });
 
     it("can't create tweet without controller",async()=>{
         const storage = await TweetStorage.deployed()
@@ -28,7 +39,8 @@ contract('tweets',() =>{
     it("can create tweet with controller", async()=>{
         const controller = await TweetController.deployed()
 
-        const tx = await controller.createTweet(1,"Hello World!")
+        const tx = await controller.createTweet("Hello World!")
+        assert.isOk(tx)
     })
 
     it("can get tweet",async()=>{
@@ -41,5 +53,16 @@ contract('tweets',() =>{
         assert.equal(text,"Hello World!")
         assert.equal(parseInt(userId),1)
     })
+    it("can get all tweets IDs from user", async () => {
+        const storage = await TweetStorage.deployed()
+    
+        const userId = 1
+        const ids = await storage.getTweetIdsFromUser.call(userId)
+    
+        const expectedTweetId = 1
+    
+        assert.isOk(Array.isArray(ids))
+        assert.equal(ids[0], expectedTweetId)
+      })
 
 })

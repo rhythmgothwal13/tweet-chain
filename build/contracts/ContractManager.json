@@ -12,7 +12,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -62,7 +63,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -4474,10 +4476,41 @@
       "links": {},
       "address": "0x9F35e3249740dacc5A7F5ff5F9c2D192a13ED0bD",
       "transactionHash": "0x8dd9cc282de64a41976c64cf436cb14bc179a255d05623bb9352e4c09b4c85e5"
+    },
+    "1651393827322": {
+      "events": {},
+      "links": {},
+      "address": "0x0acC20CfA8A2230bacd299b907FA117D46E66d28",
+      "transactionHash": "0xc2d67bd7cd2b42d8ee9b4786c4a56fc6783689a01dea5e8fbff2d329119f8e34"
+    },
+    "1651394327845": {
+      "events": {},
+      "links": {},
+      "address": "0x9c4920274453F59a1b7d5eDa01e2400cf2Fdb23f",
+      "transactionHash": "0x126f4cd3426a8a9206c35ad9037ce2660bd5cf07a413d456400f6b3e339ba457"
+    },
+    "1651396545713": {
+      "events": {},
+      "links": {},
+      "address": "0x41da84315be703B0d5F8cA62500b04b846E681f7",
+      "transactionHash": "0x5afebf423106b48f48b4a2447251ceabaf1842e9621300c74b5530716769735a"
+    },
+    "1651400021859": {
+      "events": {},
+      "links": {},
+      "address": "0x43dB5eA30A6D1F5997D28c381cB8353EED9C404A",
+      "transactionHash": "0x58b12be226464e9311c1b7d4b657c211c61be7ad85aca42a0d4b55d86961b785"
+    },
+    "1651476564664": {
+      "events": {},
+      "links": {},
+      "address": "0x426c0dF7FdeEec747eE04fd77Fe220A026cc277c",
+      "transactionHash": "0x3f641b6de21ddc62794591895e5ec9053ee804024097ec25305f384bb659d3db"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-05-01T08:03:48.286Z",
+  "updatedAt": "2022-05-02T09:21:40.383Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -75,10 +75,10 @@ export default class RegistrationForm extends React.Component {
 
     try {
       // Open the MetaMask modal:4
-      console.log(username);
-      console.log(web3.utils.asciiToHex(username));
+      // console.log(username);
+      // console.log(web3.utils.asciiToHex(username));
 
-      // await createUser (username, firstName, lastName, bio, gravatarEmail)
+       await createUser (username, firstName, lastName, bio, gravatarEmail)
 
       alert("Your user has been created!")
     } catch (err) {

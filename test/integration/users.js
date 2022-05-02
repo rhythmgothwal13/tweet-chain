@@ -25,9 +25,9 @@ contract('users', ()=>{
         try {
           const tx = await storage.createUser(
             0x0,
-            web3.utils.asciiToHex("tristan"),
-            web3.utils.asciiToHex("Tristan"),
-            web3.utils.asciiToHex("Edwards"),
+            "tristan",
+            "Tristan",
+            "Edwards",
             "I like building stuff",
             "example@example.com")
           assert.fail();

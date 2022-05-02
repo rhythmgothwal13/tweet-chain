@@ -5,14 +5,24 @@ pragma solidity ^0.8.9;
 import '../helpers/BaseController.sol';
 import '../ContractManager.sol';
 import './TweetStorage.sol';
+import "../users/UserStorage.sol";
 
 contract TweetController is BaseController {
-    function createTweet(uint _userId,string memory _text)public returns(uint){
+    function createTweet(string memory _text)public returns(uint){
         ContractManager _manager = ContractManager(managerAddr);
 
-        address _tweetStorageAddr  = _manager.getAddress("TweetStorage");
-        TweetStorage _tweetStorage = TweetStorage(_tweetStorageAddr);
+    address _userStorageAddr = _manager.getAddress("UserStorage");
+    UserStorage _userStorage = UserStorage(_userStorageAddr);
+    
+    // Get the user ID from the address
+    uint _userId = _userStorage.addresses(msg.sender);
 
-        return _tweetStorage.createTweet(_userId, _text);
+    // Make sure the user ID isn't null
+    require(_userId != 0);
+
+    address _tweetStorageAddr = _manager.getAddress("TweetStorage");
+    TweetStorage _tweetStorage = TweetStorage(_tweetStorageAddr);
+
+    return _tweetStorage.createTweet(_userId, _text);
     }
 }

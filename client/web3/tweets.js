@@ -10,7 +10,6 @@ export const createTweet = async(text)=>{
         const addresses = await eth.getAccounts()
 
         const result = await controller.createTweet(
-            1,
             text,
             {
                 from: addresses[0],
